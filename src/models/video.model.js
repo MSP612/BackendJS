@@ -1,0 +1,34 @@
+import mongoose,{Schema} from "mongoose";
+
+const videoSchema = new Schema({
+    videofile:{
+        type: String, //cloudinary url
+        required: true
+    },
+    thumbnail:{
+        type: String, //cloudinary url
+        required: true
+    },
+    title:{
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    duration:{
+        type: Number,
+        required: true
+    },
+    views:{
+        type: Number,
+        default: 0
+    },
+    ispublished:{
+        type: Boolean,
+        default: false
+    }
+},{timestamps:true})
+
+export const Video = new mongoose.model("Video",videoSchema)
